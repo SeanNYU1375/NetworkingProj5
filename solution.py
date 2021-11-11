@@ -133,7 +133,7 @@ def get_route(hostname):
                     #Fill in start
                     #You should add your responses to your lists here
                     TimeString_str = str(round(timeSent * 1000)) + "ms"
-                    tracelist1.append(str(ttl), TimeString_str, str(addr[0]), OutHostName)
+                    tracelist1.append([str(ttl), TimeString_str, str(addr[0]), OutHostName])
                     tracelist2.append(tracelist1[-1])
                     #Fill in end
                 elif ICMP_Type == 3: #destination unreachable
@@ -141,7 +141,7 @@ def get_route(hostname):
                     timeSent = struct.unpack("d", recvPacket[28:28 + bytes])[0]
                     #Fill in start
                     #You should add your responses to your lists here 
-                    tracelist1.append(str(ttl), "*", "Request timed out")
+                    tracelist1.append([str(ttl), "*", "Request timed out"])
                     tracelist2.append(tracelist1[-1])
                     #Fill in end
                 elif ICMP_Type == 0: #echo reply
@@ -150,7 +150,7 @@ def get_route(hostname):
                     #Fill in start
                     #You should add your responses to your lists here and return your list if your destination IP is met
                     TimeString_str = str(round(timeSent * 1000)) + "ms"
-                    tracelist1.append(str(ttl), TimeString_str, str(addr[0]), OutHostName)
+                    tracelist1.append([str(ttl), TimeString_str, str(addr[0]), OutHostName])
                     tracelist2.append(tracelist1[-1])
 
                     #Fill in end
